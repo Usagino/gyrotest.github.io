@@ -11,7 +11,7 @@
 
 <body>
   <div class="box">
-    <div id="txt">ここにデータを表示</div>
+    <div class="box__text" id="txt">ここにデータを表示</div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>
@@ -28,18 +28,24 @@
 
     // 指定時間ごとに繰り返し実行される setInterval(実行する内容, 間隔[ms]) タイマーを設定
     let timer = window.setInterval(() => {
-      displayData(); // displayData 関数を実行
+
+      $(".box__text").html(`
+        <p>回転: ${Math.floor(alpha)}</p>
+        <p>上下: ${Math.floor(beta)}</p>
+        <p>左右: ${Math.floor(gamma)}</p>
+      `);
     }, 33); // 33msごとに（1秒間に約30回）
 
     // データを表示する displayData 関数
-    function displayData() {
-      let txt = document.getElementById("txt"); // データを表示するdiv要素の取得
-      txt.innerHTML = "alpha: " + Math.floor(alpha) + "<br>" // x軸の値
-        +
-        "上下:  " + Math.floor(beta) + "<br>" // y軸の値
-        +
-        "左右: " + Math.floor(gamma); // z軸の値
-    }
+
+    // function displayData() {
+    //   let txt = document.getElementById("txt"); // データを表示するdiv要素の取得
+    //   txt.innerHTML = "alpha: " +  + "<br>" // x軸の値
+    //     +
+    //     "上下:  " +  + "<br>" // y軸の値
+    //     +
+    //     "左右: " +; // z軸の値
+    // }
   </script>
 </body>
 
