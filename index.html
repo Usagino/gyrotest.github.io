@@ -11,9 +11,9 @@
   <div id="txt">ここにデータを表示</div> <!-- データを表示するdiv要素 -->
 
   <script>
-    var alpha = 0,
-      beta = 0,
-      gamma = 0; // ジャイロの値を入れる変数を3個用意
+    let alpha = 0;
+    let beta = 0;
+    let gamma = 0; // ジャイロの値を入れる変数を3個用意
 
     // ジャイロセンサの値が変化したら実行される deviceorientation イベント
     window.addEventListener("deviceorientation", (dat) => {
@@ -30,11 +30,11 @@
     // データを表示する displayData 関数
     function displayData() {
       var txt = document.getElementById("txt"); // データを表示するdiv要素の取得
-      txt.innerHTML = "alpha: " + alpha + "<br>" // x軸の値
+      txt.innerHTML = "alpha: " + Math.floor(alpha) + "<br>" // x軸の値
         +
-        "beta:  " + beta + "<br>" // y軸の値
+        "beta:  " + Math.floor(beta) + "<br>" // y軸の値
         +
-        "gamma: " + gamma; // z軸の値
+        "gamma: " + Math.floor(gamma); // z軸の値
     }
   </script>
 </body>
